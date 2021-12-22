@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- charte graphique = rouge, bleu, vert, gris, noir -->
+<html>
+<head>
+    <link rel="stylesheet" href="CSS/Font-Awesome-5.15.4/css/all.min.css">
+	  <link href="CSS/Accueil.css" rel="stylesheet">
+    <link href="CSS/Style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="parallax.js-1.5.0/parallax.min.js"></script>
+	  <title class ="titre">Accueil</title>
+	
+<nav>
+  <ul class="menu">
+    <li class="logo"><a href="">Île de Bréhat</a></li>
+    <li class="item"><a href="#">Accueil</a></li>
+    <li class="item"><a href="file:///C:/Users/Rayane/OneDrive/Bureau/PJS3/Municipalit%C3%A9.html">Municipalité</a></li>
+    <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+  </ul>
+</nav>
+</head>
+<body>
+  <div class="bloc-video">
+  <video class="video" autoplay muted loop>
+    <source src="CSS/Vidéo/Brehat_Trim.mp4" type="video/mp4">
+  </video>
+   <h1 class="pres">Bienvenue à l'Île de Bréhat</h1>
+  <p class="pres1"><br>Vous retrouverez ici toutes les informations concernant l'Île de bréhat et son 
+  </p>
+  </div>
+  <div class="container">
+    <h2 class="pres">Actualités</h2>
+    <p class="bloc">Point sur la situation sanitaire sur l’Île de Bréhat – 06/09/2021<br>
+    <button class="bouton" onclick="window.location.href ='https://www.iledebrehat.fr/covid-19/point-sur-la-situation-sanitaire-sur-lile-de-brehat-06-09-2021/';">Cliquez ici</button>
+    </p>
+    <p class="bloc">Port du masque obligatoire par arrêté préfectoral du 25 août 2021<br>
+    <button class="bouton" onclick="window.location.href ='https://www.iledebrehat.fr/covid-19/port-du-masque-obligatoire-par-arrete-prefectoral-a-compter-du-dimanche-1er-aout-2021/';">Cliquez ici</button>
+    </p>
+    <p class="bloc">Coupure de courant – vendredi 24 septembre et jeudi 21 octobre<br>
+    <button class="bouton"onclick="window.location.href ='https://www.iledebrehat.fr/actualites-municipales/coupure-de-courant-vendredi-24-septembre-et-jeudi-21-octobre/';">Cliquez ici</button>
+    </p>
+    <div class="parallax" data-parallax="scroll" data-z-index="1" data-image-src="CSS/Images/Brehat1.jpg"><p class="parallax-1">   
+    </p>  
+    </div>
+    <h2 class="pres">Agenda</h2>
+    <p class="bloc">Ateliers Citrouilles<br>
+    <button class="bouton" onclick="window.location.href ='https://www.iledebrehat.fr/agenda/ateliers-citrouilles/';">Cliquez ici</button>
+    </p>
+    <p class="bloc">Le mois du film documentaire<br>
+    <button class="bouton" onclick="window.location.href ='https://www.iledebrehat.fr/agenda/le-mois-du-film-documentaire/';">Cliquez ici</button>
+    </p>
+    <p class="bloc">Concours de belote<br>
+    <button class="bouton" onclick="window.location.href ='https://www.iledebrehat.fr/agenda/concours-de-belote/';">Cliquez ici</button>
+    </p>
+    
+    <div class="parallax" data-parallax="scroll" data-z-index="1" data-image-src="CSS/Images/Brehat.jpg"> 
+  </div>
+     <h2 class="contact">Nous contacter</h2>
+      <div class="horaire">
+       <p><br>La mairie est ouverte le lundi, le mardi et le vendredi de 9h à 12h et 14h à 16h, le mercredi et le jeudi de 9h à 12h.<br>
+        Fermeture le samedi et le dimanche.<br>
+        En dehors des heures d’ouverture, et en cas d’urgence uniquement, le numéro d’astreinte est le : 06 17 41 58 17<br>
+        <br>Vous pouvez également nous joindre au : 02 96 20 00 36</p>
+      </div>
+  </div>
+	<script>const toggle = document.querySelector(".toggle");
+   const menu = document.querySelector(".menu");
+   const items = document.querySelectorAll(".item");
+
+/* Toggle mobile menu */
+function toggleMenu() {
+  if (menu.classList.contains("active")) {
+    menu.classList.remove("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+  } else {
+    menu.classList.add("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+  }
+}
+
+/* Activate Submenu */
+function toggleItem() {
+  if (this.classList.contains("submenu-active")) {
+    this.classList.remove("submenu-active");
+  } else if (menu.querySelector(".submenu-active")) {
+    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    this.classList.add("submenu-active");
+  } else {
+    this.classList.add("submenu-active");
+  }
+}
+
+/* Close Submenu From Anywhere */
+function closeSubmenu(e) {
+  let isClickInside = menu.contains(e.target);
+
+  if (!isClickInside && menu.querySelector(".submenu-active")) {
+    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+  }
+}
+/* Event Listeners */
+toggle.addEventListener("click", toggleMenu, false);
+for (let item of items) {
+  if (item.querySelector(".submenu")) {
+    item.addEventListener("click", toggleItem, false);
+  }
+  item.addEventListener("keypress", toggleItem, false);
+}
+document.addEventListener("click", closeSubmenu, false);
+</script>
+</body>
+<footer>
+  <div class="parallax" data-parallax="scroll" data-z-index="1" data-image-src="CSS/Images/Brehat.png"> 
+    <p class="parallax-3"> Site officiel de la commune d’ïle-de-Bréhat <br> Toute l’information pratique sur l’administration de la commune, les démarches administratives, les services, la vie quotidienne insulaire, les loisirs et le tourisme.<br>
+    © 2021 Agence BreizhPress  
+   </p>
+   <img class="logo1" src="CSS/Images/logo-brehat-test7.png">
+   </div>
+</footer>
+</html>

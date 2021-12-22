@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+ <html>
+  <head> 
+    <link rel="stylesheet" href="CSS/Font-Awesome-5.15.4/css/all.min.css">
+    <link href="CSS/Accueil.css" rel="stylesheet">  
+    <link href="CSS/Municipalité.css" rel="stylesheet">
+    <title class ="titre">Municipalité</title>
+ <nav>
+   <ul class="menu">
+    <li class="logo"><a href="#">Île de Bréhat</a></li>
+    <li class="item"><a href="file:///C:/Users/Rayane/OneDrive/Bureau/PJS3/Accueil1.html">Accueil</a></li>
+    <li class="item"><a href="">Municipalité</a></li>
+    <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+   </ul>
+ </nav>
+ </head>
+<body>
+  <section>
+    <div class="slide">
+      <div class="content">
+        <h2>La mairie</h2>
+        <p>um existimabat, anxia cogitatione, quid moliretur haerebat.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="content">
+        <h2>Tarifs communaux</h2>
+        <p>um existimabat, anxia cogitatione, quid moliretur haerebat.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="content">
+        <h2>L'équipe municipale</h2>
+        <p> Les élus du Comité Syndical du SDE 22 de 2019 :</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="content">
+        <h2>Conseil municipal des jeunes</h2>
+        <p>um existimabat, anxia cogitatione, quid moliretur haerebat.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="content">
+        <h2>Conseils municipaux</h2>
+        <p>um existimabat, anxia cogitatione, quid moliretur haerebat.</p>
+      </div>
+    </div>
+  </section>
+    
+
+<script>const toggle = document.querySelector(".toggle");
+    const menu = document.querySelector(".menu");
+    const items = document.querySelectorAll(".item");
+ 
+ /* Toggle mobile menu */
+ function toggleMenu() {
+   if (menu.classList.contains("active")) {
+     menu.classList.remove("active");
+     toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+   } else {
+     menu.classList.add("active");
+     toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+   }
+ }
+ 
+ /* Activate Submenu */
+ function toggleItem() {
+   if (this.classList.contains("submenu-active")) {
+     this.classList.remove("submenu-active");
+   } else if (menu.querySelector(".submenu-active")) {
+     menu.querySelector(".submenu-active").classList.remove("submenu-active");
+     this.classList.add("submenu-active");
+   } else {
+     this.classList.add("submenu-active");
+   }
+ }
+ 
+ /* Close Submenu From Anywhere */
+ function closeSubmenu(e) {
+   let isClickInside = menu.contains(e.target);
+ 
+   if (!isClickInside && menu.querySelector(".submenu-active")) {
+     menu.querySelector(".submenu-active").classList.remove("submenu-active");
+   }
+ }
+ /* Event Listeners */
+ toggle.addEventListener("click", toggleMenu, false);
+ for (let item of items) {
+   if (item.querySelector(".submenu")) {
+     item.addEventListener("click", toggleItem, false);
+   }
+   item.addEventListener("keypress", toggleItem, false);
+ }
+ document.addEventListener("click", closeSubmenu, false);
+ </script>
+</body>
+</html>
